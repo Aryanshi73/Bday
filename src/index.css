@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bday-purple: #8B5CF6;
+  --color-bday-lavender: #A78BFA;
+  --color-bday-soft-purple: #C4B5FD;
+  --color-bday-indigo: #6366F1;
+  --color-bday-blue: #0EA5E9;
+  --color-bday-sky: #38BDF8;
+  --color-bday-periwinkle: #818CF8;
+  --color-bday-powder: #BAE6FD;
+  --color-bday-bg: #F8FAFF;
+  --color-bday-card: rgba(255, 255, 255, 0.85);
+
+  --font-bubbly: "Baloo 2", "Fredoka", cursive, sans-serif;
+  --font-body: "Nunito", "Inter", sans-serif;
+  --font-handwriting: "Caveat", cursive;
+
+  --keyframes-blob-float: {
+    0%: { transform: translate(0px, 0px) scale(1) };
+    50%: { transform: translate(25px, -35px) scale(1.1) };
+    100%: { transform: translate(-20px, 20px) scale(0.95) };
+  };
+
+  --keyframes-wiggle: {
+    0%, 100%: { transform: rotate(-3deg) };
+    50%: { transform: rotate(3deg) };
+  };
+
+  --keyframes-candle-flicker: {
+    0%: { transform: scale(1) skewX(-1deg); opacity: 0.9 };
+    50%: { transform: scale(1.06) skewX(2deg); opacity: 1 };
+    100%: { transform: scale(0.98) skewX(-2deg); opacity: 0.85 };
+  };
+
+  --keyframes-pulse-soft: {
+    0%, 100%: { transform: scale(1); opacity: 1 };
+    50%: { transform: scale(1.04); opacity: 0.9 };
+  };
+
+  --animation-blob-float: blob-float 14s ease-in-out infinite alternate;
+  --animation-wiggle: wiggle 1s ease-in-out infinite;
+  --animation-candle-flicker: candle-flicker 1.2s ease-in-out infinite alternate;
+  --animation-pulse-soft: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Custom Base & Utilities */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-bday-bg);
+    color: #1E1B4B;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-bubbly);
+  }
+}
+
+/* Custom Frosted Lavender & Sky Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid rgba(224, 231, 255, 0.9);
+  box-shadow: 0 12px 36px 0 rgba(139, 92, 246, 0.08), 0 2px 8px 0 rgba(14, 165, 233, 0.05);
+}
+
+.glass-card-dark {
+  background: rgba(30, 27, 75, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(14, 165, 233, 0.35);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #7C3AED 0%, #6366F1 45%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-soft {
+  background: linear-gradient(135deg, #8B5CF6 0%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Airmail Striped Border in Lavender & Sky Blue */
+.airmail-border {
+  background: repeating-linear-gradient(
+    45deg,
+    #8B5CF6 0,
+    #8B5CF6 12px,
+    #FFF 12px,
+    #FFF 16px,
+    #38BDF8 16px,
+    #38BDF8 28px,
+    #FFF 28px,
+    #FFF 32px
+  );
+}
+
+/* Custom Scrollbar in Lavender */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F3FF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A78BFA;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
